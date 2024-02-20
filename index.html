@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ThunderClient Clone</title>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+    <main>
+      <div class="wrapper">
+        <div class="left-main">
+          <div>
+            <span><h6 style="color: #ffffff;">THUNDER CLIENT</h6></span>
+            <span><button style="background-color: rgb(44, 44, 136); color: #ffffff; padding-top: 1px;">New Request</button></span>
+          </div>
+          <div>
+
+          </div>
+        </div>
+        <div class="right-main">
+          <!-- Request Editor -->
+          <section id="request-editor">
+              <!-- Request method dropdown -->
+              <select id="method-dropdown">
+                  <option value="GET">GET</option>
+                  <option value="POST">POST</option>
+                  <!-- Add other HTTP methods as needed -->
+              </select>
+              <!-- Request URL input -->
+              <input type="text" id="url-input" placeholder="Enter URL">
+              <!-- Request body textarea -->
+              <textarea id="request-body" placeholder="Enter request body"></textarea>
+              <!-- Send button -->
+              <button id="send-button">Send</button>
+          </section>
+          <!-- Response Viewer -->
+          <section id="response-viewer">
+              <!-- Response status -->
+              <div id="response-status"></div>
+              <!-- Response body -->
+              <pre id="response-body"></pre>
+          </section>
+        </div>
+      </div>  
+    </main>
+</body>
+</html>
