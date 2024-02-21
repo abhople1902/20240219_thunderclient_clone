@@ -27,35 +27,45 @@
 
 
 
+// const apiUrl = 'http://localhost:3000/products/65d2e703d27a46434d455d64';
 
-// import('node-fetch').then(async (fetchModule) => {
-//   const fetch = fetchModule.default;
-  
-//   // Your code using fetch goes here
-//   const url = 'http://localhost:3000/products';
-//   const response = await fetch(url);
-//   const data = await response.json();
-//   console.log('Data fetched successfully:', data);
-// }).catch((err) => {
-//   console.error('Error loading node-fetch module:', err);
-// });
+// fetch(apiUrl)
+//   .then(response => {
+//     if (!response.ok) {
+//       throw new Error('Network response was not ok');
+//     }
+//     return response.json();
+//   })
+//   .then(data => {
+//     console.log(data);
+//   })
+//   .catch(error => {
+//     console.error('There was a problem with the fetch operation:', error);
+//   });
 
 
 
 
 
-const apiUrl = 'http://localhost:3000/products/65d2e703d27a46434d455d64';
+document.getElementById('send-button').addEventListener('click', function () {
+  const url = document.getElementById('url-input').value;
 
-fetch(apiUrl)
-  .then(response => {
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
-    }
-    return response.json();
-  })
-  .then(data => {
-    console.log(data);
-  })
-  .catch(error => {
-    console.error('There was a problem with the fetch operation:', error);
-  });
+  // Perform the fetch request with the URL
+  fetch(url)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then(data => {
+      // Populate the response body in the pre tag
+      document.getElementById('response-body').innerText = JSON.stringify(data, null, 2);
+    })
+    .catch(error => {
+      console.error('There was a problem with the fetch operation:', error);
+      // Clear the response body if an error occurs
+      document.getElementById('response-body').innerText = 'Error: ' + error.message;
+    });
+});
+
